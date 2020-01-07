@@ -1,0 +1,9 @@
+<div class='Catgle_Wrapper'>
+  <app-searcher (passInputValue)="getInputValue($event)" (passButtonHandler)="handleSearchClick($event)"></app-searcher>
+  <div *ngIf="!isLoading">
+    <app-results [kitties]="results"></app-results>
+  </div>
+  <div class="Catgle_Wrapper_spinnerWrapper" *ngIf="isLoading">
+    <fa-icon [icon]="faSpinner" class='Catgle_Wrapper_spinner' [spin]="true"></fa-icon>
+  </div>
+</div>

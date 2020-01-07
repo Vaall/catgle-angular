@@ -1,0 +1,19 @@
+<div class='Catgle_Searcher'>
+  <div class='Catgle_Searcher_header'>
+    <img src='../../assets/images/catgle-logo.png' width='100%' height='auto' alt='logo' />
+    <span>a cat search engine</span>
+  </div>
+  <form class='Catgle_Searcher_body'>
+    <span class='Catgle_Searcher_body_icon'>
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </span>
+    <input name='searchInput' [(ngModel)]="searchInput" (change)="onInputChange($event)" class='Catgle_Searcher_body_searchInput' />
+    <div class='Catgle_Searcher_body_buttonWrapper'>
+      <div *ngIf="searchInput.length">
+        <button id='particular' class='Catgle_Searcher_body_searchButton --fadeIn'
+          (click)="onSearchClicked($event)">Search</button>
+      </div>
+      <button id='all' class='Catgle_Searcher_body_searchButton' (click)="onSearchClicked($event)">Search All</button>
+    </div>
+  </form>
+</div>

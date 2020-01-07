@@ -1,0 +1,6 @@
+<div class='Catgle_Results'>
+  <div *ngFor="let kitty of kitties">
+    <app-kitty-card [kitty]="kitty" *ngIf="kitty"></app-kitty-card>
+    <p class="--fadeIn Catgle_Wrapper_spinnerWrapper" *ngIf="!kitty">Not results found</p>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+.Catgle_Searcher {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+
+  &_header {
+    width: 450px;
+
+    span {
+      font-style: italic;
+      color: #888888;
+      display: grid;
+      justify-content: center;
+    }
+  }
+
+  &_body {
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+    position: relative;
+
+    &_icon {
+      color: #888888;
+      position: absolute;
+      left: 3%;
+      top: 12%;
+    }
+
+    &_searchInput {
+      transition: all 0.5s;
+      height: 40px;
+      border-radius: 20px;
+      border: 1px solid #dfdfdf;
+      width: 550px;
+      padding: 0 50px;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0px 1px 5px 1px #dfdfdf;
+      }
+
+      &:hover {
+        box-shadow: 0px 1px 5px 1px #dfdfdf;
+      }
+    }
+
+    &_buttonWrapper {
+      display: flex;
+      justify-content: center;
+
+      button {
+        margin-left: 10px;
+      }
+    }
+
+    &_searchButton {
+      cursor: pointer;
+      height: 35px;
+      width: 150px;
+      border-radius: 5px;
+      border-color: none;
+      border: none;
+      color: #3b3b3b;
+      background-color: #f0f0f0;
+
+      &:hover {
+        color: black;
+        border: 1px solid #cfcfcf;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

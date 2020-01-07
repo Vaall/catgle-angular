@@ -1,0 +1,25 @@
+.Catgle_Wrapper {
+  height: 100vh;
+  display: grid;
+  align-items: center;
+
+  &_notFound {
+    display: grid;
+    align-self: start;
+  }
+
+  &_spinnerWrapper {
+    display: grid;
+    align-self: start;
+  }
+
+  &_spinner {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-self: start;
+    align-items: flex-start;
+    color: #888888;
+    font-size: 88px;
+  }
+}
