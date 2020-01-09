@@ -20,7 +20,7 @@ router.post('/by-age', (req, res) => {
     if (kittiesArr.length) {
       res.send(kittiesArr);
     } else {
-      res.send([false]);
+      res.send(false);
     }
   }, 1500)
 })
@@ -43,7 +43,7 @@ router.post('/by-name-or-breed', (req, res) => {
     if (kittiesArr.length) {
       res.send(kittiesArr);
     } else {
-      res.send([false]);
+      res.send(false);
     }
   }, 1500)
 });

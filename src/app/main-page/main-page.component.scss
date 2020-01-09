@@ -10,7 +10,7 @@
 
   &_spinnerWrapper {
     display: grid;
-    align-self: start;
+    align-self: center;
   }
 
   &_spinner {
@@ -21,5 +21,15 @@
     align-items: flex-start;
     color: #888888;
     font-size: 88px;
+  }
+
+  &_Results {
+    display: grid;
+    align-self: start;
+  }
+
+  &_Searcher {
+    display: grid;
+    align-self: end;
   }
 }

@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
   @Input() kitties;
+  @Input() error;
+  @Input() noKitties;
 
   constructor() { }
 

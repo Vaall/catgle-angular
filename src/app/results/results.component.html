@@ -3,4 +3,10 @@
     <app-kitty-card [kitty]="kitty" *ngIf="kitty"></app-kitty-card>
     <p class="--fadeIn Catgle_Wrapper_spinnerWrapper" *ngIf="!kitty">Not results found</p>
   </div>
+  <div *ngIf="error.status">
+    <p class="--fadeIn">{{ error.message }}</p>
+  </div>
+  <div *ngIf="noKitties">
+    <p class="--fadeIn">No results found</p>
+  </div>
 </div>

@@ -10,8 +10,7 @@ import { EventEmitter } from '@angular/core';
 export class SearcherComponent implements OnInit {
   @Output() passInputValue = new EventEmitter<string>();
   @Output() passButtonHandler = new EventEmitter<string>();
-  inputValue
-
+  searchInput: string = '';
   faSearch = faSearch;
 
   constructor() { }

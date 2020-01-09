@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { SearchService } from '../search.service';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { Kitty } from '../kitty';
 
 @Component({
   selector: 'app-main-page',
@@ -9,7 +10,10 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 })
 export class MainPageComponent implements OnInit {
   isLoading: boolean;
-  results: {};
+  isObject: boolean;
+  results: Kitty[];
+  noResults: boolean = false;
+  error: object = { message: '', status: false };
   searchInput: string = '';
   faSpinner = faSpinner;
   constructor(private searchService: SearchService) { }
@@ -22,9 +26,22 @@ export class MainPageComponent implements OnInit {
   }
 
   handleSearchClick($event) {
+    this.noResults = false;
     this.isLoading = true;
+
     this.searchService.handleSearchCall($event, this.searchInput)
-      .subscribe(results => this.results = results)
-      .add(() => this.isLoading = false)
+      .then((response) => {
+        if (response.length) {
+          this.results = response;
+        } else {
+          this.noResults = true;
+        }
+      })
+      .catch((err) => {
+        this.error = { message: err, status: true };
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
   }
 }
