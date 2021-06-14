@@ -1,0 +1,83 @@
+.Imc_TurnForm {
+  padding: 2rem;
+  width: 100%;
+  background-color: #dfe9e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_submit {
+    float: right;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    background-color: #009299;
+    color: #fff;
+    border-radius: 6px;
+    padding: .5rem;
+    font-size: 1rem;
+    transition: all 200ms;
+  
+    &:hover {
+      filter: brightness(.95);
+    }
+  }
+
+  &_wrapper {
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    width: 40vw;
+    min-height: 800px;
+  }
+
+  &_header {
+    color: #fff;
+    border-radius: 6px;
+    padding: .25rem;
+    height: 200px;
+    background-color: #009299;
+    display: flex;
+    flex-direction: column;
+
+    &_caption {
+      height: 100%;
+      background-image: url('https://www.imcnet.com.ar/imagenes/banner_turnoonline02.jpg');
+      background-size: cover;
+      background-position-y: -200px;
+    }
+
+    &_title {
+      text-align: center;
+      margin: .5rem;
+    }
+  }
+
+  &_body {
+    &_subtitle {
+      padding: 1rem 0;
+      color: #009299;
+      position: relative;
+      padding-bottom: .5rem; 
+
+      &::before {
+        content: "";
+        width: 10%;
+        height: 6px;
+        background-color: #009299;
+        position: absolute;
+        border-radius: 6px;
+        bottom: 0;
+      }
+    }
+
+    &_fieldWrapper {
+      padding: 2rem 0 0;
+    }
+  }
+
+  &_legend {
+    color: rgb(92, 92, 92);
+    font-size: .85rem;
+  }
+}

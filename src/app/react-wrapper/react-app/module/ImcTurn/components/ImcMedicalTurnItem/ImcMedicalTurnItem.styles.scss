@@ -1,0 +1,36 @@
+.Imc_MedicalTurnItem {
+  &_input {
+    height: 50px;
+    border-radius: 6px;
+    border: 1px solid rgb(90, 90, 90);
+    outline-color: #009299;
+    padding: 0 .5rem;
+  }
+  
+  &_actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    .close {
+      transform: rotate(45deg);
+    }
+
+    &_button {
+      border: 2px solid #009299;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      transition: all 200ms;
+      color: #009299;
+      
+      &:hover {
+        border-color: #000;
+        color: #000;
+      }
+    }
+  }
+}

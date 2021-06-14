@@ -1,35 +1,43 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import axios from 'axios';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { RevenueAdjustment } from './main-page/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  private allKittyUrl = 'http://localhost:5000/api/kitties/all';
-  private byAgeKittyUrl = 'http://localhost:5000/api/kitties/by-age';
-  private byNameOrBreedKittyUrl = 'http://localhost:5000/api/kitties/by-name-or-breed';
-  private data: object;
+  taxonomy$: Observable<any>;
+  taxonomySubject$ = new BehaviorSubject<any>(null);
+  revenueItems$: Observable<RevenueAdjustment[]>;
+  revenueItemsSubject$ = new BehaviorSubject<RevenueAdjustment[]>(null);
 
-  handleSearchCall(searchType: string, searchValue: string) {
-    this.data = { data: searchValue };
+  constructor(
+    private httpService: HttpClient
+  ) {
+    this.taxonomy$ = this.taxonomySubject$.asObservable();
+    this.revenueItems$ = this.revenueItemsSubject$.asObservable();
+  }
 
-    if (searchType === 'all') {
-      return axios.post(this.allKittyUrl)
-        .then((response) => {
-          return response.data;
-        });
-    }
-    if (searchType === 'particular') {
-      if (parseInt(searchValue).toString() === searchValue) {
-        return axios.post(this.byAgeKittyUrl, this.data)
-          .then((response) => {
-            return response.data;
-          });
-      }
-      return axios.post(this.byNameOrBreedKittyUrl, this.data)
-        .then((response) => {
-          return response.data;
-        });
-    }
+  public loadTaxonomy() {
+    this.httpService.get('http://localhost:3000/get-taxonomy').subscribe((value) => {
+      this.taxonomySubject$.next(value);
+    });
+  }
+
+  public loadRevenueAdjustments() {
+    const result = this.httpService.get('http://localhost:3000/revenue-adjustments/get-all').subscribe((value: any[]) => {
+      this.revenueItemsSubject$.next(value);
+    });
+
+    return result;
+  }
+
+  public updateAll(data: RevenueAdjustment[]) {
+    const result = this.httpService.post('http://localhost:3000/revenue-adjustments/update-all', data).subscribe((value: any[]) => {
+      // this.revenueItemsSubject$.next(value);
+    });
+
+    return result;
   }
 }

@@ -1,10 +1,61 @@
-<div class='Catgle_Wrapper'>
-  <app-searcher class="Catgle_Wrapper_Searcher" (passInputValue)="getInputValue($event)"
-    (passButtonHandler)="handleSearchClick($event)"></app-searcher>
-  <div class="Catgle_Wrapper_Results" *ngIf="!isLoading">
-    <app-results [kitties]="results" [error]="error" [noKitties]="noResults"></app-results>
-  </div>
-  <div class="Catgle_Wrapper_spinnerWrapper" *ngIf="isLoading">
-    <fa-icon [icon]="faSpinner" class='Catgle_Wrapper_spinner' [spin]="true"></fa-icon>
+<div
+  *ngIf="taxonomy && data && controlsReady"
+  class="revenue-adjustment"
+  [ngClass]="isNew && !isCopied ? 'revenue-adjustment__background' : ''"
+  [formGroup]="revenueAdjustmentForm"
+>
+  <ng-container *ngFor="let item of revenueAdjustmentFormData">
+    <div class="revenue-adjustment__field">
+      <label class="revenue-adjustment__field_label">{{ item.label }}</label>
+      <ng-container [ngSwitch]="item.type">
+        <ng-container *ngSwitchCase="FieldType.dropdown">
+            <kendo-dropdownlist
+              [data]="dropdownData[item.dropdownData.sourceData]"
+              [valueField]="item.dropdownData.valueField"
+              [textField]="item.dropdownData.textField"
+              [valuePrimitive]="true"
+              [formControl]="getControlByFieldName(item.field)"
+            ></kendo-dropdownlist>
+            <span
+              class="revenue-adjustment__error"
+              *ngIf="(
+                getControlByFieldName(item.field).invalid &&
+                (getControlByFieldName(item.field).dirty || getControlByFieldName(item.field).touched)
+              )"
+              [innerHTML]="getErrorMessage(getControlByFieldName(item.field))"
+            >
+              dasd
+            </span>
+        </ng-container>
+        <ng-container *ngSwitchCase="FieldType.currency">
+            <kendo-numerictextbox
+              format="c2"
+              [min]="0"
+              [formControl]="getControlByFieldName(item.field)"
+            ></kendo-numerictextbox>
+            <span
+              class="revenue-adjustment__error"
+              *ngIf="(
+                getControlByFieldName(item.field).errors &&
+                getControlByFieldName(item.field).dirty
+              )"
+              [innerHTML]="getErrorMessage(getControlByFieldName(item.field))"
+            ></span>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+  <div class="revenue-adjustment__actions">
+    <ng-container *ngFor="let action of revenueAdjustmentActions">
+      <button
+        class="revenue-adjustment__action"
+        *ngIf="!action.hidden(revenueAdjustmentForm, isNew, isCopied)"
+        [title]="action.tooltip"
+        [disabled]="action.isDisabled(revenueAdjustmentForm.valid)"
+        (click)="handleAction(action.type)"
+      >
+        <span [class]="action.icon"></span>
+      </button>
+    </ng-container>
   </div>
 </div>

@@ -1,0 +1,57 @@
+.Imc_EdtiableField {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  label {
+    margin-bottom: .25rem;
+  }
+
+  &_input {
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid #5a5a5a;
+    outline-color: #009299;
+    padding: 0 .5rem;
+
+    &::invalid {
+      border-color: red;
+    }
+
+    &:hover {
+      border-color: #9F9F9F;
+    }
+  }
+
+  &_required {
+    color: rgb(235, 0, 0);
+  }
+
+  &_select {
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: #5a5a5a;
+    box-shadow: none;
+    outline-color: #009299;
+  }
+
+  &_error {
+    position: absolute;
+    bottom: -20px;
+    font-size: .9rem;
+    color: red;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.react-select-container {
+  height: 40px;
+}
+
+.react-select__control {
+  height: 100%;
+}

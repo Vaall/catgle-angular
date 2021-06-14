@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -11,6 +11,17 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { SearcherComponent } from './searcher/searcher.component';
 import { ResultsComponent } from './results/results.component';
 import { KittyCardComponent } from './kitty-card/kitty-card.component';
+import { TurnosComponent } from './turnos/turnos.component';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { KpiComponent } from './kpi/kpi.component';
+import { ReactFeelingFormComponent } from './react-wrapper/angular-wrapper.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -18,14 +29,22 @@ import { KittyCardComponent } from './kitty-card/kitty-card.component';
     MainPageComponent,
     SearcherComponent,
     ResultsComponent,
-    KittyCardComponent
+    KittyCardComponent,
+    TurnosComponent,
+    KpiComponent,
+    ReactFeelingFormComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
+    DropDownsModule,
+    BrowserAnimationsModule,
+    InputsModule,
+    GridModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,35 +1,63 @@
-.Catgle_Wrapper {
-  height: 100vh;
-  display: grid;
-  align-items: center;
+.revenue-adjustment {
+  display: flex;
+  padding: 1.5rem;
+  justify-content: space-between;
 
-  &_notFound {
-    display: grid;
-    align-self: start;
+  &__error {
+    position: absolute;
+    color: red;
+    margin-top: 70px;
+    font-size: .7rem;
   }
 
-  &_spinnerWrapper {
-    display: grid;
-    align-self: center;
-  }
-
-  &_spinner {
+  &__field {
+    position: relative;
+    padding: 0 .5rem;
     display: flex;
-    justify-self: center;
-    justify-content: center;
-    align-self: start;
-    align-items: flex-start;
-    color: #888888;
-    font-size: 88px;
+    flex-direction: column;
+
+    &_label {
+      font-size: 1rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+    }
   }
 
-  &_Results {
-    display: grid;
-    align-self: start;
+  &__actions {
+    display: flex;
+    align-items: flex-end;
+    width: 150px;
   }
 
-  &_Searcher {
-    display: grid;
-    align-self: end;
+  &__action {
+    background: white;
+    border: 1px solid rgb(0, 174, 255);
+    color: rgb(0, 174, 255);
+    margin: 0 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+    &:disabled {
+      &:hover {
+        color: #8a8a8a;
+        border-color: #8a8a8a;
+      }
+
+      background: #e6e6e6;
+      color: #8a8a8a;
+      border-color: #8a8a8a;
+    }
+
+    &:hover {
+      border-color: rgb(0, 130, 190);
+      color: rgb(0, 130, 190);
+    }
+  }
+
+  &__background {
+    border: 1px dashed rgb(0, 163, 254);
+    background-color: rgb(246, 253, 255);
   }
 }
