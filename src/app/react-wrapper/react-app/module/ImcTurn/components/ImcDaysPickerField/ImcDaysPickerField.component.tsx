@@ -1,5 +1,6 @@
+import React from 'react';
 import { FC, useState } from 'react';
-import { ImcCustomCheckbox } from '../ImcCustomCheckbox/ImcCustomCheckbox.component';
+import { Shared } from '../../../Shared';
 import './ImcDaysPickerField.styles.scss';
 
 const WEEK_DAYS = [
@@ -9,7 +10,7 @@ const WEEK_DAYS = [
   { value: 'thursday', text: 'J' },
   { value: 'friday', text: 'V' },
   { value: 'saturday', text: 'S' },
-]
+];
 
 interface ImcDaysPickerFieldProps {
   onChange: (e: string[]) => void,
@@ -32,7 +33,7 @@ export const ImcDaysPickerField: FC<ImcDaysPickerFieldProps> = ({ onChange }) =>
     <div className="Imc_DaysPickerField">
       <div>
         {WEEK_DAYS.map((day) => (
-          <ImcCustomCheckbox
+          <Shared.ImcCustomCheckbox
             onChange={handleDaysChanged}
             key={day.value}
             inputData={day}

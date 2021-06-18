@@ -35,3 +35,13 @@ export interface ActiveTurnItem {
   speciality: string,
   study: string,
 };
+
+export interface CustomChangeEvent {
+  target: {
+    name: string,
+    value: {
+      value: string;
+      label: string;
+    } | null | string[]
+  }
+};

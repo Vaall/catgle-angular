@@ -1,6 +1,6 @@
 import { Theme } from "react-select";
-import { ActiveTurnItem, InputField } from "../interfaces/Form.interfaces";
 import * as Yup from 'yup';
+import { ActiveTurnItem, InputField } from "../interfaces";
 
 export const HOURS_SELECT_DATA = [
   { value: '1', label: 'De 08:00 a 12:00 Hs.' },
@@ -238,7 +238,9 @@ export const FORM_VALIDATIONS = Yup.object().shape({
     .min('1900-01-01', 'Fecha invalida')
     .max(new Date(), 'Fecha invalida')
     .required('Campo Requerido'),
-  dayPicker: Yup.array().length(1, 'Al menos debe seleccionar un día'),
-  month: Yup.string().required('Campo Requerido'),
-  hours: Yup.string().required('Campo Requerido')
+  dayPicker: Yup.array().required('Campo Requerido'),
+  month: Yup.object().required('Campo Requerido'),
+  hours: Yup.object().required('Campo Requerido')
 });
+
+export const ENDPOINT_TO_FORM_SUBMIT = "http://localhost:3000/turn-form/submit";

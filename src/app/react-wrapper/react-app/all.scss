@@ -1,32 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.--fadeIn {
-  animation-name: fadeIn;
-  animation-duration: 600ms;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 article {
   position: relative;
   width: 45px;
@@ -76,7 +47,7 @@ article {
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
   label {
     margin-bottom: 0.25rem;
@@ -289,6 +260,7 @@ article {
 .Imc_TurnForm {
   padding: 2rem;
   width: 100%;
+  min-height: 100vh;
   background-color: #dfe9e9;
   display: flex;
   justify-content: center;
@@ -316,11 +288,7 @@ article {
     box-sizing: border-box;
     padding: 1rem 2rem;
     width: 40vw;
-    box-sizing: border-box;
-    padding: 1rem 2rem;
-    width: 45vw;
-    height: 800px;
-    overflow: auto;
+    min-height: 800px;
   }
 
   &_header {
@@ -364,122 +332,12 @@ article {
     }
 
     &_fieldWrapper {
-      padding: 1rem 0 0;
+      padding: 2rem 0 0;
     }
   }
 
   &_legend {
     color: rgb(92, 92, 92);
     font-size: 0.85rem;
-  }
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&display=swap");
-
-body {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #212121;
-}
-
-input {
-  font-family: "Montserrat", sans-serif;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.col-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 2rem;
-}
-
-.col-3 {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.col-4 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 1rem;
-}
-
-.--fadeIn {
-  animation-name: fadeIn;
-  animation-duration: 400ms;
-  animation-fill-mode: forwards;
-}
-
-.--hide {
-  visibility: hidden;
-  display: none;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.Imc_loading {
-  width: 100%;
-  height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 400ms;
-}
-
-.Imc_submitted {
-  height: 15vh;
-}
-
-.lds-ripple {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.lds-ripple div {
-  position: absolute;
-  border: 4px solid #009299;
-  opacity: 1;
-  border-radius: 50%;
-  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-}
-.lds-ripple div:nth-child(2) {
-  animation-delay: -0.5s;
-}
-@keyframes lds-ripple {
-  0% {
-    top: 36px;
-    left: 36px;
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
-  100% {
-    top: 0px;
-    left: 0px;
-    width: 72px;
-    height: 72px;
-    opacity: 0;
   }
 }

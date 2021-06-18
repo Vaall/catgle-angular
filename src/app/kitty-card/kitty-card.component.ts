@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./kitty-card.component.scss']
 })
 export class KittyCardComponent implements OnInit {
-  @Input() kitty: {};
+  @Input() kitty: any;
 
   constructor() { }
 

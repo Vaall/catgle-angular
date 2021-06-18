@@ -1,6 +1,7 @@
 .Imc_TurnForm {
   padding: 2rem;
   width: 100%;
+  min-height: 100vh;
   background-color: #dfe9e9;
   display: flex;
   justify-content: center;
@@ -18,7 +19,7 @@
     padding: .5rem;
     font-size: 1rem;
     transition: all 200ms;
-  
+
     &:hover {
       filter: brightness(.95);
     }
@@ -58,7 +59,7 @@
       padding: 1rem 0;
       color: #009299;
       position: relative;
-      padding-bottom: .5rem; 
+      padding-bottom: .5rem;
 
       &::before {
         content: "";

@@ -1,40 +1,8 @@
+import React from 'react';
 import { FC } from 'react';
-import { ActiveTurnItem, InputField } from '../../../../domain/interfaces/Form.interfaces';
-import { ImcEditableField } from '../ImcEditableField/ImcEditableField.component';
+import { ActiveTurnItem, MEDICAL_TURN_FIELDS } from 'src/app/react-wrapper/react-app/domain';
+import { ImcEditableField } from '../ImcTurnFormEditableField/ImcEditableField.component';
 import './ImcMedicalTurnItem.styles.scss';
-
-const MEDICAL_TURN_FIELDS: InputField[] = [
-  {
-    inputData: {
-      name: 'medic',
-      id: 'medic',
-      type: 'text'
-    },
-    label: 'Médico',
-    required: false,
-    formikField: 'medicalTurnItems'
-  },
-  {
-    inputData: {
-      name: 'speciality',
-      id: 'speciality',
-      type: 'text',
-    },
-    formikField: 'medicalTurnItems',
-    label: 'Especialidad',
-    required: false
-  },
-  {
-    inputData: {
-      name: 'study',
-      id: 'study',
-      type: 'text'
-    },
-    formikField: 'medicalTurnItems',
-    label: 'Estudio',
-    required: false
-  }
-];
 
 interface Keys {
   medic: '',

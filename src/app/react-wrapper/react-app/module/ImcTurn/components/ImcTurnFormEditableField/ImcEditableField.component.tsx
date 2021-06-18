@@ -1,32 +1,19 @@
+import React from 'react';
 import Select from 'react-select';
+import { FormikTouched } from 'formik';
 import { ChangeEvent } from 'react';
-import { InputField } from '../../../../domain/interfaces/Form.interfaces';
 import { ImcDaysPickerField } from '../ImcDaysPickerField/ImcDaysPickerField.component';
-import { ImcFileDropper } from '../ImcFileDropper/ImcFileDropper.component';
+import { CustomChangeEvent, InputField, SELECT_THEME } from 'src/app/react-wrapper/react-app/domain';
+import { ImcFileDropper } from '../../../Shared/ImcFileDropper/ImcFileDropper.component';
 import './ImcEditableField.styles.scss';
-import { SELECT_THEME } from '../../../../domain/constants/Form.constants';
 
 interface ImcEditableFieldProps {
   field: InputField,
   className?: string,
-  onChange: (e: ChangeEvent | {
-    target: {
-      name: string,
-      value: {
-        value: string;
-        label: string;
-      } | null | string[]
-    }
-  }) => void,
+  onChange: (e: ChangeEvent | CustomChangeEvent) => void,
   error?: any,
-  touched?: boolean | never[] | undefined
+  touched?: boolean | never[] | FormikTouched<any>[]
 }
-
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-];
 
 export const ImcEditableField = (data: ImcEditableFieldProps) => {
   const renderField = () => {
@@ -36,9 +23,9 @@ export const ImcEditableField = (data: ImcEditableFieldProps) => {
         classNamePrefix="react-select"
         theme={SELECT_THEME}
         defaultValue={data.field.inputData.defaultValue || null}
-        {...data.field.inputData}
         onChange={handleCustomFieldChanges}
-        options={data.field.inputData.selectData || options}
+        options={data.field.inputData.selectData || []}
+        {...data.field.inputData}
       />;
     } else if (data.field.inputData.type === 'daypicker') {
       return (
