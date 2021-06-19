@@ -17,7 +17,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { KpiComponent } from './kpi/kpi.component';
-import { ReactFeelingFormComponent } from './react-wrapper/angular-wrapper.component';
+import { ReactTurnFormComponent } from './react-wrapper/react-turn-form-wrapper.component';
+import { ReactFooterComponent } from './react-wrapper/react-footer-wrapper';
+import { ReactBannerComponent } from './react-wrapper/react-banner';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -32,7 +35,10 @@ import { ReactFeelingFormComponent } from './react-wrapper/angular-wrapper.compo
     KittyCardComponent,
     TurnosComponent,
     KpiComponent,
-    ReactFeelingFormComponent
+    ReactTurnFormComponent,
+    ReactFooterComponent,
+    ReactBannerComponent,
+    HeaderComponent
   ],
   imports: [
     ReactiveFormsModule,

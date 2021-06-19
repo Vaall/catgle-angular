@@ -129,7 +129,6 @@ export const TURN_PERSONAL_DATA_INPUTS: InputField[] = [
       type: 'select',
       placeholder: '',
       selectData: SOCIAL_SELECT_DATA,
-      defaultValue: SOCIAL_SELECT_DATA[0]
     },
     formikField: 'social',
     label: 'Obra Social',

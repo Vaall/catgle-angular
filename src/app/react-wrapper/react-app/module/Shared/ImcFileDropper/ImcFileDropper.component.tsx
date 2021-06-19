@@ -100,7 +100,7 @@ export const ImcFileDropper: FC<ImcFileDropperProps> = ({ onChange }) => {
   }
 
   return (
-    <div className="container">
+    <div className="file-drop-container">
       <div className="drop-container"
         onDragOver={dragOver}
         onDragEnter={dragEnter}

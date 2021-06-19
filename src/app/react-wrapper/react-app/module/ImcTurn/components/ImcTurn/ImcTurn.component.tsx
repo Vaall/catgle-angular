@@ -38,7 +38,7 @@ export const ImcTurnForm: FC<ImcTurnFormProps> = ({ onFormSubmit }) => {
   }, []);
 
   return (
-    <div className="Imc_TurnForm_wrapper">
+    <div className="Imc_TurnForm_wrapper --fadeIn">
       <div className="Imc_TurnForm_header">
         <h3 className="Imc_TurnForm_header_title">TURNOS POR EMAIL</h3>
         <div className="Imc_TurnForm_header_caption" />
@@ -102,7 +102,12 @@ export const ImcTurnForm: FC<ImcTurnFormProps> = ({ onFormSubmit }) => {
           />
         </div>
         <div className="Imc_TurnForm_body_fieldWrapper">
-          <button className="Imc_TurnForm_submit" type="submit">Enviar</button>
+          <button
+            className="Imc_TurnForm_submit Imc_TurnForm_form_button"
+            type="submit"
+          >
+            Enviar
+          </button>
         </div>
       </form>
     </div>

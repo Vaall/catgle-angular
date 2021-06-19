@@ -6,19 +6,24 @@ import {
   EventEmitter,
   AfterViewInit
 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { ReactWrapper } from './react-app/index';
+import { ReactFooter, ReactWrapper } from './react-app/index';
 
 @Component({
-  selector: 'app-react-feeling-form',
+  selector: 'app-react-footer',
   template: '<div [id]="rootId"></div>'
 })
-export class ReactFeelingFormComponent implements OnChanges, AfterViewInit {
+export class ReactFooterComponent implements OnChanges, AfterViewInit {
   @Input() name: string;
   @Output() submitEvent = new EventEmitter<string>();
 
-  public rootId = 'feeling-form-root';
+  constructor(
+    private router: Router
+  ) { }
+
+  public rootId = 'react-footer-root';
   private hasViewLoaded = false;
 
   public ngOnChanges() {
@@ -36,7 +41,7 @@ export class ReactFeelingFormComponent implements OnChanges, AfterViewInit {
     }
 
     ReactDOM.render(
-      React.createElement(ReactWrapper),
+      React.createElement(ReactFooter),
       document.getElementById(this.rootId)
     );
   }
